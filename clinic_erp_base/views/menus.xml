@@ -1,0 +1,8 @@
+<odoo>
+    <menuitem id="menu_clinic_root" name="Clinic ERP" sequence="10"/>
+    <menuitem id="menu_clinic_admin" name="Administration" parent="menu_clinic_root" sequence="30"/>
+    <menuitem id="menu_clinic_patients" name="Patients" parent="menu_clinic_root" action="action_clinic_patient" sequence="10"/>
+    <menuitem id="menu_clinic_staff" name="Medical Staff" parent="menu_clinic_admin" action="action_clinic_staff" sequence="10"/>
+    <menuitem id="menu_clinic_services" name="Price List" parent="menu_clinic_admin" action="action_clinic_service" sequence="20"/>
+    <menuitem id="menu_clinic_rooms" name="Rooms" parent="menu_clinic_admin" action="action_clinic_room" sequence="30"/>
+</odoo>

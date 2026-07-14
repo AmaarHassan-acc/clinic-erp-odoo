@@ -1,0 +1,22 @@
+.o_clinic_workspace { display: grid; grid-template-columns: 230px minmax(0, 1fr); min-height: calc(100vh - 46px); background: #f5f7fb; }
+.o_clinic_sidebar { padding: 18px 14px; background: #20313f; color: #fff; display: flex; flex-direction: column; gap: 8px; }
+.o_clinic_sidebar button { border: 0; border-radius: 12px; padding: 11px 12px; text-align: left; background: transparent; color: rgba(255,255,255,.78); font-weight: 700; }
+.o_clinic_sidebar button.active, .o_clinic_sidebar button:hover { background: rgba(255,255,255,.13); color: #fff; }
+.o_clinic_brand { display: grid; gap: 2px; padding: 8px 10px 16px; margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,.12); }
+.o_clinic_brand span, .o_clinic_topbar span { color: #667085; font-size: 12px; }
+.o_clinic_main { padding: 20px; }
+.o_clinic_topbar, .o_clinic_section_head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.o_clinic_topbar h2, .o_clinic_section_head h3 { margin: 0; }
+.o_clinic_grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.o_clinic_grid .wide { grid-column: span 2; }
+.o_clinic_card { background: #fff; border: 1px solid #e8ecf3; border-radius: 16px; box-shadow: 0 12px 30px rgba(31,45,61,.07); padding: 16px; }
+.o_clinic_card.doctor { display: grid; gap: 8px; }
+.o_clinic_list { display: grid; gap: 8px; }
+.o_clinic_row { width: 100%; border: 1px solid #e8ecf3; background: #fbfcfe; border-radius: 12px; padding: 10px; display: grid; gap: 3px; text-align: left; }
+.o_clinic_row span { color: #667085; font-size: 12px; }
+.o_clinic_row em { color: #5b6cf1; font-style: normal; font-weight: 700; font-size: 12px; }
+.o_clinic_metric { padding: 10px 0; border-bottom: 1px solid #edf0f5; }
+.o_clinic_metric b { font-size: 24px; margin-right: 6px; }
+.o_clinic_empty { padding: 18px; color: #667085; text-align: center; }
+.avatar { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; background: #bdeee3; color: #20313f; font-weight: 800; }
+@media (max-width: 900px) { .o_clinic_workspace { grid-template-columns: 1fr; } .o_clinic_sidebar { flex-direction: row; overflow-x: auto; } .o_clinic_grid { grid-template-columns: 1fr; } .o_clinic_grid .wide { grid-column: auto; } }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="clinic_erp_workspace.ClinicWorkspace">
+        <div class="o_clinic_workspace">
+            <aside class="o_clinic_sidebar">
+                <div class="o_clinic_brand"><strong>Clinic ERP</strong><span>Reception &amp; Doctor</span></div>
+                <button t-att-class="state.page === 'calendar' ? 'active' : ''" t-on-click="() => this.setPage('calendar')">Calendar</button>
+                <button t-att-class="state.page === 'appointment' ? 'active' : ''" t-on-click="() => this.setPage('appointment')">Appointment</button>
+                <button t-att-class="state.page === 'queue' ? 'active' : ''" t-on-click="() => this.setPage('queue')">Queue</button>
+                <button t-att-class="state.page === 'doctor' ? 'active' : ''" t-on-click="() => this.setPage('doctor')">Doctor</button>
+            </aside>
+            <main class="o_clinic_main">
+                <div class="o_clinic_topbar">
+                    <div><h2 t-esc="state.page[0].toUpperCase() + state.page.slice(1)"/><span>Internal clinic workspace</span></div>
+                    <button class="btn btn-primary" t-on-click="newAppointment">New Appointment</button>
+                </div>
+                <t t-if="state.loading"><div class="o_clinic_card">Loading clinic data...</div></t>
+                <t t-if="!state.loading and state.page === 'calendar'">
+                    <section class="o_clinic_grid">
+                        <div class="o_clinic_card wide">
+                            <div class="o_clinic_section_head"><h3>Appointments</h3><input type="date" t-model="state.selectedDate"/></div>
+                            <div class="o_clinic_list">
+                                <t t-foreach="todaysAppointments()" t-as="apt" t-key="apt.id">
+                                    <button class="o_clinic_row" t-on-click="() => this.openAppointment(apt.id)">
+                                        <strong t-esc="displayName(apt.patient_id)"/>
+                                        <span><t t-esc="displayName(apt.doctor_id)"/> · <t t-esc="apt.department"/></span>
+                                        <em t-esc="statusLabel(apt.state)"/>
+                                    </button>
+                                </t>
+                                <t t-if="!todaysAppointments().length"><div class="o_clinic_empty">No appointments for selected date.</div></t>
+                            </div>
+                        </div>
+                        <div class="o_clinic_card">
+                            <h3>Metrics</h3>
+                            <div class="o_clinic_metric"><b t-esc="state.patients.length"/> Patients</div>
+                            <div class="o_clinic_metric"><b t-esc="state.doctors.length"/> Staff</div>
+                            <div class="o_clinic_metric"><b t-esc="waitingVisits().length"/> Waiting</div>
+                        </div>
+                    </section>
+                </t>
+                <t t-if="!state.loading and state.page === 'appointment'">
+                    <section class="o_clinic_grid">
+                        <t t-foreach="state.doctors" t-as="doctor" t-key="doctor.id">
+                            <div class="o_clinic_card doctor"><div class="avatar" t-esc="doctor.name.substring(0, 2).toUpperCase()"/><h3 t-esc="doctor.name"/><p><t t-esc="doctor.department"/> · <t t-esc="doctor.specialty"/></p><button class="btn btn-primary" t-on-click="newAppointment">Book Now</button></div>
+                        </t>
+                    </section>
+                </t>
+                <t t-if="!state.loading and state.page === 'queue'">
+                    <section class="o_clinic_card"><h3>Waiting Queue</h3><div class="o_clinic_list"><t t-foreach="waitingVisits()" t-as="visit" t-key="visit.id"><button class="o_clinic_row" t-on-click="() => this.openVisit(visit.id)"><strong t-esc="displayName(visit.patient_id)"/><span><t t-esc="displayName(visit.doctor_id)"/> · <t t-esc="visit.department"/></span><em t-esc="statusLabel(visit.state)"/></button></t></div></section>
+                </t>
+                <t t-if="!state.loading and state.page === 'doctor'"><section class="o_clinic_card"><h3>Doctor Screen</h3><p>Next step: chart, diagnosis, prescription lines, and complete visit actions.</p></section></t>
+            </main>
+        </div>
+    </t>
+</templates>

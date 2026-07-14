@@ -1,0 +1,5 @@
+<odoo>
+    <menuitem id="menu_clinic_schedule" name="Schedule" parent="clinic_erp_base.menu_clinic_root" sequence="20"/>
+    <menuitem id="menu_clinic_appointments" name="Appointments" parent="menu_clinic_schedule" action="action_clinic_appointment" sequence="10"/>
+    <menuitem id="menu_clinic_visits" name="Visits" parent="menu_clinic_schedule" action="action_clinic_visit" sequence="20"/>
+</odoo>

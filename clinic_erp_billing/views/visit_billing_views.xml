@@ -1,0 +1,15 @@
+<odoo>
+    <record id="view_clinic_visit_form_billing" model="ir.ui.view">
+        <field name="name">clinic.visit.form.billing</field>
+        <field name="model">clinic.visit</field>
+        <field name="inherit_id" ref="clinic_erp_schedule.view_clinic_visit_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_create_invoice" type="object" string="Create Invoice"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Billing"><field name="invoice_id"/></page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

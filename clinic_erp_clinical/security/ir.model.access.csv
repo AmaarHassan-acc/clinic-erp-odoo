@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_clinic_prescription_doctor,clinic.prescription.doctor,model_clinic_prescription,clinic_erp_base.group_clinic_doctor,1,1,1,0
+access_clinic_prescription_receptionist,clinic.prescription.receptionist,model_clinic_prescription,clinic_erp_base.group_clinic_receptionist,1,0,0,0
+access_clinic_prescription_manager,clinic.prescription.manager,model_clinic_prescription,clinic_erp_base.group_clinic_manager,1,1,1,1
+access_clinic_prescription_line_doctor,clinic.prescription.line.doctor,model_clinic_prescription_line,clinic_erp_base.group_clinic_doctor,1,1,1,1
+access_clinic_prescription_line_manager,clinic.prescription.line.manager,model_clinic_prescription_line,clinic_erp_base.group_clinic_manager,1,1,1,1

@@ -1,0 +1,4 @@
+<odoo>
+    <menuitem id="menu_clinic_clinical" name="Clinical" parent="clinic_erp_base.menu_clinic_root" sequence="25"/>
+    <menuitem id="menu_clinic_prescriptions" name="Prescriptions" parent="menu_clinic_clinical" action="action_clinic_prescription" sequence="10"/>
+</odoo>
